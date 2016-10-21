@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  * Created by PENHCHET on 10/21/2016.
  */
 @Configuration
-@MapperScan("kr.ac.cbnu.bigdatalab.repositories")
+@MapperScan("kr.co.cbnu.bigdatalab.repositories")
 public class MyBatisConfiguration {
 
     @Autowired
