@@ -6,9 +6,8 @@
 
 <!-- MemberRepository.java namespace -->
 <mapper namespace="kr.ac.cbnu.bigdatalab.repositories.MemberRepository">
-
-
-    <!-- 1.1 Mapper findAll members -->
+    <!-- BEGIN findAll method -->
+    <!-- 1.1. mapper -->
     <resultMap type="kr.ac.cbnu.bigdatalab.entities.Member" id="Member">
         <!-- map table "members" column to class "Member" property -->
         <id property="id" column="id"/>
@@ -16,8 +15,7 @@
         <result property="dateOfBirth" column="date_of_birth"/>
         <result property="sciNo" column="sci_no"/>
     </resultMap>
-
-    <!-- 1.1. findAll members-->
+    <!-- 1.2. sql -->
     <select id="findAll" resultMap="Member">
         SELECT id,
                student_id,
@@ -34,5 +32,12 @@
                photo
         FROM members
     </select>
+    <!-- END findAll method -->
 
+    <!-- BEGIN save method -->
+    <insert id="save">
+        INSERT INTO members(id, student_id, name, gender, degree, date_of_birth,telephone, major, email, company, department,sci_no, photo)
+        VALUES(#{id}, #{studentId}, #{name}, #{gender}, #{degree}, #{dateOfBirth}, #{telephone}, #{major}, #{email}, #{company}, #{department}, #{sciNo}, #{photo})
+    </insert>
+    <!-- END save method -->
 </mapper>

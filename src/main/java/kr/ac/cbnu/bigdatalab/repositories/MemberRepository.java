@@ -1,8 +1,6 @@
 package kr.ac.cbnu.bigdatalab.repositories;
 
 import kr.ac.cbnu.bigdatalab.entities.Member;
-import org.apache.ibatis.annotations.Select;
-import org.hibernate.validator.constraints.CreditCardNumber;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,4 +12,11 @@ import java.util.List;
 public interface MemberRepository {
 
     public List<Member> findAll();
+
+    public int save(Member member);
+/*
+    public int update(Member member);
+
+    public int delete(String id);*/
+
 }

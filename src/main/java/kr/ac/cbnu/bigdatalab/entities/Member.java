@@ -1,5 +1,7 @@
 package kr.ac.cbnu.bigdatalab.entities;
 
+import java.util.UUID;
+
 /**
  * Created by PENHCHET on 10/21/2016.
  */
@@ -18,6 +20,30 @@ public class Member {
     private String department;
     private String sciNo;
     private String photo;
+
+    public Member() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public Member(String id, String studentId, String name, String gender, String dateOfBirth, String telephone, String major, String email, String degree, String company, String department, String sciNo, String photo) {
+        this.id = id;
+        this.studentId = studentId;
+        this.name = name;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.telephone = telephone;
+        this.major = major;
+        this.email = email;
+        this.degree = degree;
+        this.company = company;
+        this.department = department;
+        this.sciNo = sciNo;
+        this.photo = photo;
+    }
+
+    public static void main(String args[]) {
+        System.out.println(UUID.randomUUID().toString());
+    }
 
     public String getId() {
         return id;
@@ -120,26 +146,6 @@ public class Member {
     }
 
     public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public Member() {
-
-    }
-
-    public Member(String id, String studentId, String name, String gender, String dateOfBirth, String telephone, String major, String email, String degree, String company, String department, String sciNo, String photo) {
-        this.id = id;
-        this.studentId = studentId;
-        this.name = name;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.telephone = telephone;
-        this.major = major;
-        this.email = email;
-        this.degree = degree;
-        this.company = company;
-        this.department = department;
-        this.sciNo = sciNo;
         this.photo = photo;
     }
 
