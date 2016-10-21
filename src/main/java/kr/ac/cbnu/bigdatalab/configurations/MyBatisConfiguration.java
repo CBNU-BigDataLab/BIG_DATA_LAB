@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
@@ -14,8 +15,9 @@ import javax.sql.DataSource;
 /**
  * Created by PENHCHET on 10/21/2016.
  */
+
 @Configuration
-@MapperScan("kr.co.cbnu.bigdatalab.repositories")
+@MapperScan("kr.ac.cbnu.bigdatalab.repositories")
 public class MyBatisConfiguration {
 
     @Autowired
@@ -34,10 +36,10 @@ public class MyBatisConfiguration {
     public SqlSessionFactoryBean sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mappers/*.xml"));
 
         //TODO: TO SOVLE WITH DON'T KNOW THE PROPERTY MAPPING WITH NULL VALUE
         SqlSessionFactory sqlSessionFactory = sessionFactory.getObject();
-        //sqlSessionFactory.getConfiguration().setMapUnderscoreToCamelCase(true);
         sqlSessionFactory.getConfiguration().setJdbcTypeForNull(JdbcType.NULL);
         return sessionFactory;
     }

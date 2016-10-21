@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    Created by PENHCHET on 10/21/2016.
+-->
+
+<!-- MemberRepository.java namespace -->
+<mapper namespace="kr.ac.cbnu.bigdatalab.repositories.MemberRepository">
+
+
+    <!-- 1.1 Mapper findAll members -->
+    <resultMap type="kr.ac.cbnu.bigdatalab.entities.Member" id="Member">
+        <!-- map table "members" column to class "Member" property -->
+        <id property="id" column="id"/>
+        <result property="studentId" column="student_id"/>
+        <result property="dateOfBirth" column="date_of_birth"/>
+        <result property="sciNo" column="sci_no"/>
+    </resultMap>
+
+    <!-- 1.1. findAll members-->
+    <select id="findAll" resultMap="Member">
+        SELECT id,
+               student_id,
+               name,
+               gender,
+               degree,
+               date_of_birth,
+               telephone,
+               major,
+               email,
+               company,
+               department,
+               sci_no,
+               photo
+        FROM members
+    </select>
+
+</mapper>
