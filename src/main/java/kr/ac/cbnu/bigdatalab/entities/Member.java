@@ -41,10 +41,6 @@ public class Member {
         this.photo = photo;
     }
 
-    public static void main(String args[]) {
-        System.out.println(UUID.randomUUID().toString());
-    }
-
     public String getId() {
         return id;
     }
