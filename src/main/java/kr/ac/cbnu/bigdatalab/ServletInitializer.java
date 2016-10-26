@@ -1,7 +1,7 @@
 package kr.ac.cbnu.bigdatalab;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
